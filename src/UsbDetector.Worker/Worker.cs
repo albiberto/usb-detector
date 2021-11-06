@@ -2,7 +2,7 @@
 
 namespace UsbDetector.Worker;
 
-public class Worker : IHostedService
+public class Worker : IHostedService, IDisposable
 {
     private readonly ILogger<Worker> _logger;
 
@@ -25,5 +25,10 @@ public class Worker : IHostedService
     {
         _insertWatcher.Stop();
         return Task.CompletedTask;
+    }
+
+    public void Dispose()
+    {
+        _insertWatcher.Dispose();
     }
 }
