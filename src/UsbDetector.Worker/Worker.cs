@@ -1,4 +1,5 @@
 ﻿using System.Management;
+using UsbDetector.Worker.Abstract;
 
 namespace UsbDetector.Worker;
 
@@ -12,10 +13,20 @@ public class Worker : IHostedService, IDisposable
     private const string RemoveQuery = @"SELECT * FROM __InstanceDeletionEvent WITHIN 2 WHERE TargetInstance ISA 'Win32_USBHub'";
     private readonly ManagementEventWatcher _removeWatcher = new(new WqlEventQuery(RemoveQuery));
 
-    public Worker(ILogger<Worker> logger)
+
+    public Worker(IServiceProvider provider, ILogger<Worker> logger)
     {
         _logger = logger;
-        _insertWatcher.EventArrived += (_, __) => Console.WriteLine("Usb Inserted");
+        
+        _insertWatcher.EventArrived += (sender, args) =>
+        {
+            using var scope = provider.CreateScope();
+            var eventsService = scope
+                .ServiceProvider
+                .GetRequiredService<IUsbDetector>();
+
+            eventsService.OnInserted(sender, args);
+        };
         _removeWatcher.EventArrived += (_, __) => Console.WriteLine("Usb Removed");
     }
 
