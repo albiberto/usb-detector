@@ -18,4 +18,9 @@ public class UsbDetector : IUsbDetector
             Console.WriteLine($"{serialNumber} USB inseted");
         }
     }
+
+    public void OnRemoved(object sender, EventArrivedEventArgs e)
+    {
+        Console.WriteLine("USB removed");
+    }
 }

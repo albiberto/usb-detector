@@ -27,7 +27,16 @@ public class Worker : IHostedService, IDisposable
 
             eventsService.OnInserted(sender, args);
         };
-        _removeWatcher.EventArrived += (_, __) => Console.WriteLine("Usb Removed");
+        
+        _removeWatcher.EventArrived += (sender, args) =>
+        {
+            using var scope = provider.CreateScope();
+            var eventsService = scope
+                .ServiceProvider
+                .GetRequiredService<IUsbDetector>();
+
+            eventsService.OnRemoved(sender, args);
+        };
     }
 
     public Task StartAsync(CancellationToken cancellationToken)
