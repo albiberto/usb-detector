@@ -7,6 +7,7 @@ IHost host = Host.CreateDefaultBuilder(args)
     {
         services.AddHostedService<Worker>();
         services.AddScoped<IUsbDetector, Detector>();
+        services.AddSignalR();
     })
     .Build();
 
