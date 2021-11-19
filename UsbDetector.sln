@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2EAD7BB3-257
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsbDetector.Worker", "src\UsbDetector.Worker\UsbDetector.Worker.csproj", "{83C20452-7FB9-4245-B35A-C5444E9FCE9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsbDetector.Client", "src\UsbDetector.Client\UsbDetector.Client.csproj", "{FC1F38C3-1BEE-4721-B262-5C40B221567A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,13 @@ Global
 		{83C20452-7FB9-4245-B35A-C5444E9FCE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83C20452-7FB9-4245-B35A-C5444E9FCE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83C20452-7FB9-4245-B35A-C5444E9FCE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC1F38C3-1BEE-4721-B262-5C40B221567A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1F38C3-1BEE-4721-B262-5C40B221567A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1F38C3-1BEE-4721-B262-5C40B221567A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1F38C3-1BEE-4721-B262-5C40B221567A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{83C20452-7FB9-4245-B35A-C5444E9FCE9D} = {2EAD7BB3-2577-42B8-99A1-1681716AF17B}
+		{FC1F38C3-1BEE-4721-B262-5C40B221567A} = {2EAD7BB3-2577-42B8-99A1-1681716AF17B}
 	EndGlobalSection
 EndGlobal
