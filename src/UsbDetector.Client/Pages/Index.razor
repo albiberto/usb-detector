@@ -1,4 +1,5 @@
 ﻿@page "/"
+@inject NavigationManager _navigationManager
 
 <PageTitle>Index</PageTitle>
 
@@ -7,3 +8,26 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+@code
+{
+    private HubConnection? _hubConnection;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await StartHubConnection();
+    }
+
+    private async Task StartHubConnection()
+    {
+        _hubConnection = new HubConnectionBuilder()
+            .WithUrl(_navigationManager.ToAbsoluteUri("http://localhost:5000/usbhub"))
+            .WithAutomaticReconnect()
+            .Build();
+
+        await _hubConnection.StartAsync();
+        
+        if (_hubConnection.State == HubConnectionState.Connected)
+            Console.WriteLine("connection started");
+    }
+}
