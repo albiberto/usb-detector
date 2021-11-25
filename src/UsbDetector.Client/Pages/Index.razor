@@ -12,7 +12,8 @@ Welcome to your new app.
 @code
 {
     private HubConnection? _hubConnection;
-    
+    private string? _serialNumber;
+
     protected override async Task OnInitializedAsync()
     {
         await StartHubConnection();
@@ -25,9 +26,16 @@ Welcome to your new app.
             .WithAutomaticReconnect()
             .Build();
 
+        _hubConnection.On<string>("Connect", serialNumber =>
+        {
+            _serialNumber = serialNumber;
+            StateHasChanged();
+        });
+        
         await _hubConnection.StartAsync();
         
-        if (_hubConnection.State == HubConnectionState.Connected)
-            Console.WriteLine("connection started");
+        if (Connected) Console.WriteLine("connection started");
     }
+
+    private bool Connected => _hubConnection?.State == HubConnectionState.Connected;
 }
