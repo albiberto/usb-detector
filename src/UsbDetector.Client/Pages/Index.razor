@@ -1,13 +1,25 @@
 ﻿@page "/"
 @inject NavigationManager _navigationManager
 
-<PageTitle>Index</PageTitle>
+<PageTitle>USB-Detector</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>USB Detector</h1>
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+<ul>
+    <li>
+        <span>Usb Hub is: <strong>@(Connected ? "Connected" : "Disconnected")</strong></span>        
+    </li>
+    <li>
+        @if (_serialNumber is null)
+        {
+            <span>Usb unplugged</span>
+        }
+        else
+        {
+            <span>Usb plugged: <strong>@_serialNumber</strong></span>
+        }
+    </li>
+</ul>
 
 @code
 {
