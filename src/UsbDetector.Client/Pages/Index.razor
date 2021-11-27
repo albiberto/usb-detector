@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject NavigationManager _navigationManager
+@implements IAsyncDisposable
 
 <PageTitle>USB-Detector</PageTitle>
 
@@ -50,4 +51,9 @@
     }
 
     private bool Connected => _hubConnection?.State == HubConnectionState.Connected;
+    
+    public async ValueTask DisposeAsync()
+    {
+        if (_hubConnection is not null) await _hubConnection.DisposeAsync();
+    }
 }
