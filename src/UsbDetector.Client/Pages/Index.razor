@@ -11,7 +11,7 @@
         <span>Usb Hub is: <strong>@(Connected ? "Connected" : "Disconnected")</strong></span>        
     </li>
     <li>
-        @if (_serialNumber is null)
+        @if (string.IsNullOrEmpty(_serialNumber))
         {
             <span>Usb unplugged</span>
         }
