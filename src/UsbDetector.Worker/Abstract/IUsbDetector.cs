@@ -4,6 +4,6 @@ namespace UsbDetector.Worker.Abstract;
 
 public interface IUsbDetector
 {
-    void OnInserted(object sender, EventArrivedEventArgs e);
-    void OnRemoved(object sender, EventArrivedEventArgs e);
+    Task OnInserted(object sender, EventArrivedEventArgs e);
+    Task OnRemoved(object sender, EventArrivedEventArgs e);
 }
