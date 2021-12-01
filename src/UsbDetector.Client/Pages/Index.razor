@@ -1,5 +1,7 @@
 ﻿@page "/"
 @inject NavigationManager _navigationManager
+@using Polly
+@using Polly
 @implements IAsyncDisposable
 
 <PageTitle>USB-Detector</PageTitle>
@@ -33,6 +35,19 @@
     }
 
     private async Task StartHubConnection()
+    {
+        var retryPolicy = Policy
+            .Handle<Exception>()
+            .WaitAndRetryForeverAsync(_ => TimeSpan.FromSeconds(5), (exception, timeSpan) => Console.WriteLine($"Connection cannot be established"));
+        
+        await retryPolicy.ExecuteAsync(async () =>
+        {
+            Console.WriteLine("Trying to connect to SignalR server");
+            await TryOpenSignalRConnection();
+        });
+    }
+
+    private async Task TryOpenSignalRConnection()
     {
         _hubConnection = new HubConnectionBuilder()
             .WithUrl(_navigationManager.ToAbsoluteUri("http://localhost:5000/usbhub"))
