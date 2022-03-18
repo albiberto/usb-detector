@@ -37,7 +37,9 @@ The application conceptual life cycle is described by the following steps:
 11. The service detect USB key is unplugged and via SignalR push the client
 12. The web page show USB status to ```UNPLUGGED```
 
+<p align="center">
 ![Big Picture](https://github.com/aviezzi/usb-detector/blob/main/img/big_picture.gif)
+</p>
 
 ### Bootstrapped Ecosystem
 When ecosystem is bootstrapped the client is connected to worker SignalR hub, and wait for worker push USB stick is plugged or unplugged. The below image shows the mechanism.
