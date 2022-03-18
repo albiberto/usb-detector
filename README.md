@@ -44,7 +44,9 @@ The application conceptual life cycle is described by the following steps:
 ### Bootstrapped Ecosystem
 When ecosystem is bootstrapped the client is connected to worker SignalR hub, and wait for worker push USB stick is plugged or unplugged. The below image shows the mechanism.
 
-![Big Picture](https://github.com/aviezzi/usb-detector/blob/main/img/big_picture_cut.gif)
+<p align="center">
+  <img src="https://github.com/aviezzi/usb-detector/blob/main/img/big_picture_cut.gif" alt="BigPicture short"/>
+</p>
 
 ## Bootstrap Pratical Example
 
@@ -54,16 +56,20 @@ Refer to [Bootstrap](https://github.com/aviezzi/usb-detector/wiki/Bootstrap) wik
 ### Run client
 This step shows how start client and what browser application page shows.
 
-![Client start](https://github.com/aviezzi/usb-detector/blob/main/img/client.gif)
+<p align="center">
+  <img src="https://github.com/aviezzi/usb-detector/blob/main/img/client.gif" alt="Client gif"/>
+</p>
 
 ### Run worker
 This step shows how start worker and when browser application page is updated.
 
-![Worker start](https://github.com/aviezzi/usb-detector/blob/main/img/server.gif)
+<p align="center">
+  <img src="https://github.com/aviezzi/usb-detector/blob/main/img/server.gif" alt="Server gif"/>
+</p>
 
 ### Web Application
 This step show how browser application page react when usb stick is plugging/unplugging.
 
 <p align="center">
-  <img src="https://github.com/aviezzi/usb-detector/blob/main/img/usb.gif" alt="Plug USB gif"/>
+  <img src="https://github.com/aviezzi/usb-detector/blob/main/img/usb.gif" alt="Plugging USB gif"/>
 </p>
