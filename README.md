@@ -38,7 +38,7 @@ The application conceptual life cycle is described by the following steps:
 12. The web page show USB status to ```UNPLUGGED```
 
 <p align="center">
-![Big Picture](https://github.com/aviezzi/usb-detector/blob/main/img/big_picture.gif)
+  <img src="https://github.com/aviezzi/usb-detector/blob/main/img/big_picture.gif" alt="Big Picture"/>
 </p>
 
 ### Bootstrapped Ecosystem
