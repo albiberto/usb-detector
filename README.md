@@ -64,4 +64,6 @@ This step shows how start worker and when browser application page is updated.
 ### Web Application
 This step show how browser application page react when usb stick is plugging/unplugging.
 
-![Browser state](https://github.com/aviezzi/usb-detector/blob/main/img/usb.gif)
+<p align="center">
+  <img src="https://github.com/aviezzi/usb-detector/blob/main/img/usb.gif" alt="Plug USB gif"/>
+</p>
